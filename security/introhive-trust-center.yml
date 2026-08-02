@@ -1,0 +1,55 @@
+generated: '2026-08-01'
+method: searched
+probe: true
+source: https://trust.introhive.com/
+url: https://trust.introhive.com/
+platform: SafeBase
+cname: introhive.portals.safebase.io
+certifications:
+- SOC 2 Type 2
+- ISO/IEC 27001:2022
+- ISO/IEC 27001 Statement of Applicability
+- CSA STAR Level 1
+- Cyber Essentials Plus
+- TRUSTe
+regulatory:
+- GDPR
+- PIPEDA
+accessibility:
+- WCAG
+documents:
+- Penetration test report
+- SOC 2 report
+- AI security and privacy documentation
+- Subprocessor list
+- Acceptable use, access control and backup policies
+third_party_ratings:
+- source: SecurityScorecard
+  value: A
+- source: BitSight
+  value: '780'
+- source: Qualys SSL Labs
+  value: A+
+security_contact: security@introhive.com
+responsible_disclosure: true
+access: >-
+  Overview, certification badges and third-party ratings are publicly visible; the
+  underlying reports (SOC 2, penetration test) are gated behind a SafeBase request flow.
+evidence:
+- source: https://trust.introhive.com/
+  keywords:
+  - soc 2
+  - soc2
+  - iso/iec 27001
+  - trust center
+  - gdpr
+  - csa star
+  http_status: 200
+x-evidence:
+  fetched: '2026-08-01'
+  url: https://trust.introhive.com/
+  http_status: 200
+  note: >-
+    The SafeBase portal returns 403 to non-browser HTTP clients; page content was read with
+    a browser-equivalent fetch. The keyword evidence above was independently confirmed by
+    0-working/probe-security-programs.py.

@@ -1,0 +1,92 @@
+generated: '2026-08-01'
+method: searched
+source: >-
+  https://app.introhive.com/.well-known/oauth-authorization-server (probed) and
+  https://trust.introhive.com/ (searched)
+note: >-
+  Introhive publishes no OpenAPI/Swagger/GraphQL/AsyncAPI description, so protocol
+  conformance below is asserted only from surfaces that could be observed directly:
+  the RFC 8414 authorization-server metadata documents and the SafeBase-hosted trust
+  centre. Anything that could not be observed is recorded as unknown, not as false.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    RFC 6749 authorization_code + refresh_token grants advertised at
+    https://app.introhive.com/.well-known/oauth-authorization-server
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: true
+  evidence: >-
+    /.well-known/oauth-authorization-server returns application/json with issuer,
+    authorization_endpoint, token_endpoint, response_types_supported,
+    grant_types_supported, code_challenge_methods_supported and
+    token_endpoint_auth_methods_supported on all three regional hosts (HTTP 200)
+- id: rfc7636-pkce
+  conforms: true
+  evidence: 'code_challenge_methods_supported: ["S256"]'
+- id: rfc8615-well-known-uris
+  conforms: true
+  evidence: discovery document served under the /.well-known/ registry path
+- id: oidc-discovery
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on every Introhive host
+- id: rfc7591-dynamic-client-registration
+  conforms: false
+  evidence: no registration_endpoint member in the authorization server metadata
+- id: rfc7662-token-introspection
+  conforms: false
+  evidence: no introspection_endpoint member in the authorization server metadata
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: >-
+    /.well-known/security.txt returns 404 on introhive.com, www.introhive.com,
+    app.introhive.com, ca.introhive.com and uk.introhive.com; the only 200 is Intercom's
+    own file on the hosted help centre host
+- id: openapi
+  conforms: false
+  evidence: >-
+    no OpenAPI/Swagger document found on any API, app or docs host (see
+    well-known/introhive-well-known.yml for the probe log)
+- id: rfc9457-problem-details
+  conforms: unknown
+  evidence: no machine-readable error contract is published
+- id: a2a-agent-card
+  conforms: false
+  evidence: >-
+    /.well-known/agent-card.json and /.well-known/agent.json return 404 on every
+    Introhive host
+- id: mcp
+  conforms: false
+  evidence: no hosted Model Context Protocol server is published or advertised
+compliance_program:
+  published: true
+  url: https://trust.introhive.com/
+  platform: SafeBase
+  certifications:
+  - SOC 2 Type 2
+  - ISO/IEC 27001:2022
+  - ISO/IEC 27001 Statement of Applicability
+  - CSA STAR Level 1
+  - Cyber Essentials Plus
+  - TRUSTe
+  regulatory:
+  - GDPR
+  - PIPEDA
+  accessibility:
+  - WCAG
+  other_evidence:
+  - Penetration test report (available on request through the trust centre)
+  - AI security and privacy documentation
+  - Subprocessor list
+  ratings:
+  - SecurityScorecard A
+  - BitSight 780
+  - Qualys SSL Labs A+
+x-evidence:
+  fetched: '2026-08-01'
+  urls:
+  - https://app.introhive.com/.well-known/oauth-authorization-server
+  - https://trust.introhive.com/
+  http_status:
+  - 200
+  - 200

@@ -1,18 +1,60 @@
 aid: introhive
 name: Introhive
-description: 'Introhive is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Introhive is a relationship intelligence and CRM data automation platform
+  used primarily by professional services firms — law, accounting, consulting and the
+  built environment — to remove manual CRM data entry. It passively mines employee
+  email and calendar systems to build a firm-wide relationship graph of who knows whom
+  and how strong each relationship is, then cleans, de-duplicates and enriches contact,
+  company and activity records before writing them back into the system of record.
+  Introhive integrates with Salesforce, Microsoft Dynamics 365, HubSpot and legal/accounting
+  practice systems, and surfaces the resulting intelligence through a relationship portal,
+  digest emails and CRM-embedded apps. The company is headquartered in Fredericton,
+  New Brunswick, Canada, and operates regional platform instances for the US, Canada
+  and the UK.'
 url: https://raw.githubusercontent.com/api-evangelist/introhive/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-01'
 modified: '2026-08-01'
+image: https://www.introhive.com/wp-content/uploads/2025/09/Favicon256.png
 tags:
 - Company
-apis: []
+- Relationship Intelligence
+- CRM
+- Data Automation
+- Contact Management
+- Data Quality
+- Professional Services
+- Sales
+- Enrichment
+apis:
+- name: Introhive Platform OAuth
+  description: 'The OAuth 2.0 authorization surface in front of the Introhive platform.
+    Introhive publishes an RFC 8414 OAuth 2.0 Authorization Server Metadata document
+    at /.well-known/oauth-authorization-server on each regional platform host (US, Canada,
+    UK), advertising authorization-code and refresh-token grants with PKCE (S256) and
+    an in-product OAuth application registry at /oauth/applications. This is the only
+    machine-readable API contract Introhive publishes anonymously; there is no public
+    developer portal, OpenAPI/Swagger description, or API reference — the underlying
+    resource API is documented to customers only.'
+  humanURL: https://app.introhive.com/
+  baseURL: https://app.introhive.com
+  tags:
+  - OAuth
+  - Authorization
+  - Relationship Intelligence
+  properties:
+  - type: WellKnown
+    url: well-known/introhive-well-known.yml
+  - type: Authentication
+    url: authentication/introhive-authentication.yml
+  x-evidence:
+    discovered: '2026-08-01'
+    method: probed
+    url: https://app.introhive.com/.well-known/oauth-authorization-server
+    http_status: 200
+    content_type: application/json
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +62,47 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://forgeglobal.com/introhive_stock/
+  url: https://www.introhive.com/
+- type: Login
+  url: https://app.introhive.com/
+- type: Support
+  url: https://help.introhive.com/en/
+- type: Blog
+  url: https://www.introhive.com/resources/blog/
+- type: BlogRSS
+  url: https://www.introhive.com/feed/
+- type: GitHubOrganization
+  url: https://github.com/Introhive
+- type: PrivacyPolicy
+  url: https://www.introhive.com/privacy-policy/
+- type: CookiePolicy
+  url: https://www.introhive.com/cookies/
+- type: Compliance
+  url: https://trust.introhive.com/
+- type: Security
+  url: https://trust.introhive.com/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/introhive/
+- type: Twitter
+  url: https://x.com/introhive
+- type: YouTube
+  url: https://www.youtube.com/channel/UCs-fQFJtaAnsQge3G8smXOw
+- type: WellKnown
+  url: well-known/introhive-well-known.yml
+- type: Authentication
+  url: authentication/introhive-authentication.yml
+- type: Conformance
+  url: conformance/introhive-conformance.yml
+- type: DomainSecurity
+  url: security/introhive-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/introhive-vulnerability-disclosure.yml
+- type: TrustCenter
+  url: security/introhive-trust-center.yml
+- type: LLMsTxt
+  url: llms/introhive-llms.txt
+x-enrichment:
+  date: '2026-08-01'
+  status: enriched
+  artifacts_added: 10
+  pass: local-v1

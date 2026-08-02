@@ -1,0 +1,129 @@
+generated: '2026-08-01'
+method: probed
+source: live GET of /.well-known/* on every Introhive host in apis.yml
+note: >-
+  Introhive publishes exactly one first-party well-known document: an RFC 8414 OAuth
+  2.0 Authorization Server Metadata file, served identically from each regional platform
+  instance (US app., Canada ca., UK uk.). No security.txt, no OpenID Connect discovery,
+  no api-catalog, no ai-plugin, and no A2A agent card were found on any Introhive host.
+  The one security.txt that does answer 200 on an introhive.com host belongs to Intercom,
+  the vendor behind help.introhive.com — it is recorded below as third-party evidence
+  and is NOT Introhive's own vulnerability disclosure surface.
+hosts:
+- host: https://app.introhive.com
+  region: us
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: introhive-oauth-authorization-server.json
+    spec: RFC 8414
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/jwks.json
+    status: 404
+- host: https://ca.introhive.com
+  region: ca
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: introhive-ca-oauth-authorization-server.json
+    spec: RFC 8414
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://uk.introhive.com
+  region: uk
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: introhive-uk-oauth-authorization-server.json
+    spec: RFC 8414
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://www.introhive.com
+  region: marketing
+  documents:
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain
+    file: ../llms/introhive-llms.txt
+    generator: All in One SEO v4.9.0
+    note: >-
+      Saved verbatim. It is an auto-generated site index (~186 KB) with no API or developer
+      content, and every link in its Pages section points at the Kinsta staging origin
+      (stg-introhivefya-staging.kinsta.cloud) rather than www.introhive.com — a real defect
+      in the published file, recorded here as observed rather than corrected.
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://help.introhive.com
+  region: help-center
+  vendor: Intercom
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain
+    file: introhive-help-intercom-security.txt
+    third_party: true
+    note: >-
+      Served by Intercom (us.intercomhelpcenter.com) for the hosted help centre, not
+      authored by Introhive. Contacts and policy in it point at Intercom, so it is not
+      counted as an Introhive security.txt.
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://trust.introhive.com
+  region: trust-center
+  vendor: SafeBase
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    note: SafeBase-hosted portal returns 403 to non-browser clients for all paths.
+unreachable_hosts:
+- host: developer.introhive.com
+  result: NXDOMAIN
+  note: >-
+    Third-party API directories assert a developer portal at this hostname. It does not
+    resolve in DNS, so that claim is unverified and no DeveloperPortal pointer was wired.
+- host: api.introhive.com
+  result: NXDOMAIN
+- host: docs.introhive.com
+  result: >-
+    DNS resolves to Document360 (lb-cdmz1.document360.io) but the TLS handshake fails
+    (SSL alert 40) — the custom domain is not provisioned, so no documentation is served.
+- host: status.introhive.com
+  result: NXDOMAIN
