@@ -41,6 +41,10 @@ apis:
   humanURL: https://app.introhive.com/
   baseURL: https://app.introhive.com
   tags:
+  - Authentication
+  - Authorization
+  - Relationship Intelligence
+  tags_raw:
   - OAuth
   - Authorization
   - Relationship Intelligence
