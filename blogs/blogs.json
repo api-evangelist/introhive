@@ -2,6 +2,13 @@
   "repo": "introhive",
   "feeds": [
     {
+      "source": "https://www.introhive.com/resources/blog/",
+      "feed_url": "https://www.introhive.com/resources/blog/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
       "source": "https://help.introhive.com/en/",
       "feed_url": "https://help.introhive.com/en/",
       "title": "",
@@ -14,15 +21,8 @@
       "title": "",
       "saved": 0,
       "method": "none"
-    },
-    {
-      "source": "https://www.introhive.com/resources/blog/",
-      "feed_url": "https://www.introhive.com/resources/blog/",
-      "title": "",
-      "saved": 0,
-      "method": "none"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-08-30T22:33:40Z"
+  "fetched": "2026-09-06T19:17:18Z"
 }
