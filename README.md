@@ -64,26 +64,92 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Introhive is a relationship intelligence and CRM data automation platform used primarily by professional services firms — law, accounting, consulting and the built environment — to remove manual CRM data entry. It mines employee email and calendar systems to build a firm-wide relationship graph, then cleans, de-duplicates and enriches contact, company and activity records before writing them back into Salesforce, Microsoft Dynamics 365, HubSpot and practice systems.
+Introhive is a relationship intelligence and CRM data automation platform used primarily by professional services firms — law, accounting, consulting and the built environment — to remove manual CRM data entry. It passively mines employee email and calendar systems to build a firm-wide relationship graph of who knows whom and how strong each relationship is, then cleans, de-duplicates and enriches contact, company and activity records before writing them back into the system of record. Introhive integrates with Salesforce, Microsoft Dynamics 365, HubSpot and legal/accounting practice systems, and surfaces the resulting intelligence through a relationship portal, digest emails and CRM-embedded apps. The company is headquartered in Fredericton, New Brunswick, Canada, and operates regional platform instances for the US, Canada and the UK.
 
-- Website: https://www.introhive.com/
-- Application: https://app.introhive.com/ (regional instances: `app.` US, `ca.` Canada, `uk.` UK)
-- Help centre: https://help.introhive.com/en/
-- Trust centre: https://trust.introhive.com/
-- GitHub: https://github.com/Introhive
+**Areas:** Company · Relationship Intelligence · CRM · Data Automation · Contact Management · Data Quality · Professional Services · Sales · Data Enrichment
 
-## API surface
+## Introhive on APIs.io
 
-Introhive publishes **no public developer portal, OpenAPI/Swagger description, GraphQL schema, AsyncAPI document, MCP server or A2A agent card.** The `developer.introhive.com` hostname asserted by third-party API directories does not resolve, and `docs.introhive.com` resolves to Document360 but has no provisioned TLS certificate.
+Everything profiled for Introhive is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/introhive/](https://apis.io/providers/introhive/)** — or go straight to one of the APIs or properties below.
 
-The one machine-readable contract Introhive does serve anonymously is an **RFC 8414 OAuth 2.0 Authorization Server Metadata** document, published identically on each regional platform host — authorization-code and refresh-token grants, PKCE with `S256`, `client_secret_post`/`client_secret_basic` client authentication, and an in-product OAuth application registry behind tenant login. That surface is captured in `well-known/`, `authentication/` and `conformance/`.
+### APIs (1)
 
-## Artifacts
+- [Introhive Platform OAuth](https://apis.io/apis/introhive/introhive-platform-oauth/) — The OAuth 2.0 authorization surface in front of the Introhive platform. Introhive publishes an RFC 8414 OAuth 2.0 Authorization Server Metadata document at…
 
-| Directory | Contents |
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Introhive Authentication](https://apis.io/security/introhive/introhive-authentication/)
+- [Introhive Domain Security](https://apis.io/security/introhive/introhive-domain-security/)
+- [Introhive Trust Center](https://apis.io/security/introhive/introhive-trust-center/)
+- [Introhive Vulnerability Disclosure](https://apis.io/security/introhive/introhive-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.introhive.com/)
+- [Support](https://help.introhive.com/en/)
+- [Blog](https://www.introhive.com/resources/blog/)
+- [Security](https://trust.introhive.com/)
+- [Compliance](https://trust.introhive.com/)
+- [Privacy policy](https://www.introhive.com/privacy-policy/)
+- [GitHub](https://github.com/Introhive)
+
+## API Evangelist rating
+
+**Kin Score 24.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
 |---|---|
-| `well-known/` | Probe index plus the three verbatim regional OAuth authorization-server metadata documents |
-| `authentication/` | OAuth 2.0 profile derived from those discovery documents |
-| `conformance/` | Protocol conformance (OAuth2, RFC 8414, PKCE) plus the published compliance programme |
-| `security/` | Domain security probe, trust centre, vulnerability disclosure |
-| `llms/` | Introhive's own `llms.txt`, saved verbatim |
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 32.9 |
+
+**Agent readiness 10.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 31.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/introhive/](https://apis.io/providers/introhive/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Introhive: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/introhive/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
